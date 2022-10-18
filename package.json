@@ -1,0 +1,19 @@
+{
+  "name": "whatsinthefridge",
+  "version": "1.0.0",
+  "description": "Web application to show users healthy recipes based on food they have in their kitchen",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node FoodWeb"
+  },
+  "author": "TeamR01T03",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^5.2.2",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "node": "^18.11.0",
+    "path": "^0.12.7"
+  }
+}
