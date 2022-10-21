@@ -19,19 +19,21 @@ FoodWeb.listen(FoodWeb.get("port"),function()
 	console.log("Server started on port " + FoodWeb.get("port"));
 });
 
-
-
-
 // Get the mysql service
 var mysql = require('mysql');
 
 // Add the credentials to access your database
-var connection = mysql.createConnection({
+var connection = mysql.createConnection
+({
     host     : 'classdb.it.mtu.edu',
-    user     : 'cs3141t03r01_rw',
+	//connect to cs3141t03r01_ro OR cs3141t03r01_rw?
+    user     : 'cs3141t03r01_ro',
     password : 'Abc123!!',
-    database : 'cs3141t03r01'
+    database : 'cs3141t03r01',
+	port	 :	'3307'
 });
+
+
 
 // connect to mysql
 connection.connect(function(err) {
