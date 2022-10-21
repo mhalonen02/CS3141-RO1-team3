@@ -18,3 +18,48 @@ FoodWeb.listen(FoodWeb.get("port"),function()
 {
 	console.log("Server started on port " + FoodWeb.get("port"));
 });
+
+
+
+
+// Get the mysql service
+var mysql = require('mysql');
+
+// Add the credentials to access your database
+var connection = mysql.createConnection({
+    host     : 'classdb.it.mtu.edu',
+    user     : 'cs3141t03r01_rw',
+    password : 'Abc123!!',
+    database : 'cs3141t03r01'
+});
+
+// connect to mysql
+connection.connect(function(err) {
+    // in case of error
+    if(err){
+		console.log("Ping unsuccessful");
+        console.log(err.code);
+        console.log(err.fatal);
+    }
+	else
+	{
+		console.log("Ping successful");
+	}
+});
+
+// // Perform a query
+// $query = 'SELECT * from foods LIMIT 10';
+
+// connection.query($query, function(err, rows, fields) {
+//     if(err){
+//         console.log("An error ocurred performing the query.");
+//         return;
+//     }
+
+//     console.log("Query succesfully executed: ", rows);
+// });
+
+// Close the connection
+connection.end(function(){
+    // The connection has been closed
+});
