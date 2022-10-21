@@ -10,6 +10,7 @@ Created 10/18/2022 by MEG
 -Misc GitHub Stuff
 
 ### What to Install Prior to Cloning Repo
+Ensure you have node.js downloaded from the node website to make sure the `npm` commands work.
 Inside the VS Code terminal, Powershell, etc, you will need to run the following commands to make sure the codebase will work on your computer 
 **NOTE: These commands are for Windows OS**
     `npm install node`
@@ -35,7 +36,7 @@ The code base lives here: [GitHub Link](https://github.com/mhalonen02/CS3141-RO1
 1. Open VS Code integrated terminal (or any terminal and navigate to the folder with the code base)
 2. Use the command `npm start` to begin 
 3. Open [LocalHost](http://localhost:8000/)
-**NOTE: Any changes made in the code base need to be changed before they show up on the website**
+**NOTE: Any changes made in the code base need to be saved before they show up on the website**
 
 ### How to Make/Commit Changes
 Using VS Code:
@@ -55,4 +56,4 @@ Using Git Bash Terminal
 Before you begin working on the code, ALWAYS make sure you have the most up-to-date branch (master or otherwise)
 1. Run command in terminal `git status`. 
 2. If the status does not say the code is up to date, run the command `git pull origin master` 
-3. You may need to run `git fetch` first if you get errors
+3. You may need to run `git fetch` and/or set up a remote repo first if you get errors
