@@ -40,8 +40,8 @@ connection.connect(function(err) {
     // in case of error
     if(err){
 		console.log("Ping unsuccessful");
-        console.log(err.code);
-        console.log(err.fatal);
+        console.log("Eror code: " + err.code);
+        console.log("Fatal? " + err.fatal);
     }
 	else
 	{
