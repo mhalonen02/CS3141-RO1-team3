@@ -19,6 +19,7 @@ Inside the VS Code terminal, Powershell, etc, you will need to run the following
     `npm install path`
     `npm install ejs`
     `npm install markdown`
+    `npm install -g nodemon`
     
 ### Clone the Repository
 The code base lives here: [GitHub Link](https://github.com/mhalonen02/CS3141-RO1-team3)
@@ -34,9 +35,10 @@ The code base lives here: [GitHub Link](https://github.com/mhalonen02/CS3141-RO1
 
 ### How to Start the Website on Your LocalHost
 1. Open VS Code integrated terminal (or any terminal and navigate to the folder with the code base)
-2. Use the command `npm start` to begin 
+2. Use the command `npm start` to begin OR `nodemon FoodWeb`
 3. Open [LocalHost](http://localhost:8000/)
-**NOTE: Any changes made in the code base need to be saved before they show up on the website**
+**NOTE: If you used `npm start`, any changes made in the code base need to be saved  and the server need to be restarted (i.e terminate the batch job and return `npm start` before they show up on the website**
+**NOTE: If you are using `nodemon FoodWeb`, after making a change, save it and navigate to the FoodWeb.js file and save here as well. The terminal should show a restart of the server automatically. No need to terminate the batch and restart.
 
 ### How to Make/Commit Changes
 Using VS Code:
