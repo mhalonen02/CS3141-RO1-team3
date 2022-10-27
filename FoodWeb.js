@@ -23,11 +23,11 @@ FoodWeb.listen(FoodWeb.get("port"),function()
 var mysql = require('mysql');
 
 // Add the credentials to access your database
+// Successful ping using _rw and NOT _ro
 var connection = mysql.createConnection
 ({
     host     : 'classdb.it.mtu.edu',
-	//connect to cs3141t03r01_ro OR cs3141t03r01_rw?
-    user     : 'cs3141t03r01_ro',
+    user     : 'cs3141t03r01_rw',
     password : 'Abc123!!',
     database : 'cs3141t03r01',
 	port	 :	'3307'
