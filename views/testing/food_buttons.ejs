@@ -1,4 +1,4 @@
-<%- include('_header'); %>
+<%- include('../_partial/_header'); %>
 
     <h1> Food Buttons! Yay! </h1>
     <br>
@@ -6,14 +6,13 @@
     <select name="filter-options" id="filter-options">
         <option value="All">All Food Categories</option>
         <option value="Protein">Protein</option>
-        <option value=". . .">Protein</option>
+        <option value=". . .">. . .</option>
     </select>
 
     <br>
 
     <% foodData.forEach(function(data){ %>
         <button type="button" style="margin:5px"><%=data.food_name %></button>
-        <button type="button" style="margin:5px"><%=data.category_name %></button>
     <%  }) %>
 
     <br>
@@ -21,4 +20,4 @@
     
     <label for="Go">Added All Your Food Items? Click Here:</label>
     <button type="button" style="margin:5px">Submit</button>
-<%- include('_footer'); %>
+<%- include('../_partial/_footer'); %>
