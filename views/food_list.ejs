@@ -1,0 +1,28 @@
+<%- include('_header'); %>
+<body>
+<h1>Raw Data</h1>
+    <table border="1">
+        <tr>
+            <th>Food Name</th>
+            <th>Category Name</th>
+        </tr>
+        
+        <%
+        if(foodData.length!=0){
+        foodData.forEach(function(data){
+        %>
+        <tr>
+            <td><%=data.food_name %></td>
+            <td><%=data.category_name %></td>
+        </tr>
+        <%  }) %>
+        <% } else{ %>
+            <tr>
+                <td colspan="7">No Data Found</td>
+            </tr>
+        <% } %>
+    </table>
+    </div>
+</body>
+
+<%- include('_footer'); %>
