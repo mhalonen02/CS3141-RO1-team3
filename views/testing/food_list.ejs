@@ -7,10 +7,8 @@
             <th>Category Name</th>
         </tr>
         
-        <%
-        if(foodData.length!=0){
-        foodData.forEach(function(data){
-        %>
+        <% if(foodData.length!=0){
+            foodData.forEach(function(data){ %>
         <tr>
             <td><%=data.food_name %></td>
             <td><%=data.category_name %></td>
@@ -23,6 +21,24 @@
         <% } %>
     </table>
     </div>
+
+    <table border="1">
+        <tr>
+            <th>Category Name</th>
+        </tr>
+        
+        <% if(categoryData.length!=0){
+            categoryData.forEach(function(data2){ %>
+        <tr>
+            <td><%=data2.category_name %></td>
+        </tr>
+        <%  }) %>
+        <% } else{ %>
+            <tr>
+                <td colspan="7">No Data Found</td>
+            </tr>
+        <% } %>
+    </table>
 </body>
 
 <%- include('../_partial/_footer'); %>

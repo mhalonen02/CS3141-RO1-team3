@@ -1,7 +1,8 @@
 // makes connection to mysql database
 // run into errors if in the main app
 var mysql = require('mysql');
-var conn = mysql.createConnection({
+var conn = mysql.createConnection({ 
+    multipleStatements: true,
     host: 'classdb.it.mtu.edu',
     user: 'cs3141t03r01_rw',
     password: 'Abc123!!',
