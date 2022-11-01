@@ -39,6 +39,17 @@ router.get("/Find_Recipe", function(req,res)
     res.render("home/Find_Recipe");
 });
 
+// shows buttons on the page since below code does not currently work
+router.get("/food_buttons", function(req,res)
+{
+    res.render("testing/food_buttons");
+});
+
+router.get("/food_list", function(req,res)
+{
+    res.render("testing/food_list");
+});
+
 // have one router to the buttons page
 // send query w/ all categories
 // send query w/ food from each category separately

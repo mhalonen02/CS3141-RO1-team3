@@ -20,4 +20,10 @@ conn.connect(function(err){
 		console.log("Ping successful");
 	}
 });
+
+// query function to run sql statements - NOT currently working
+// conn.query(mysql, function(err){
+
+// });
+
 module.exports = conn;

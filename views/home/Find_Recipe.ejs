@@ -1,5 +1,6 @@
 <%- include('../_partial/_header'); %>
 
+ 
     <h1> Begin Your Recipe-Search Here! </h1>
 
     <br>
@@ -13,15 +14,50 @@
 
     <br>
 
-    <button type="button" style="margin:5px">Food Item 1</button>
-    <button type="button" style="margin:5px">Food Item 2</button>
-    <button type="button" style="margin:5px">Food Item 3</button>
-    <button type="button" style="margin:5px">Food Items Continued from SQL Database</button>
+    <!--Need to add functionality to change background color > see below javascript code; maybe add boolean that can be updated on button click?-->
+    <button type="button" id="btn" style="margin:5px" onClick="foodClick()">Food Item 1</button>
+    <button type="button" id="btn" style="margin:5px" onClick="foodClick()">Food Item 2</button>
+    <button type="button" id="btn" style="margin:5px" onClick="foodClick()">Food Item 3</button>
+    <button type="button" id="btn" style="margin:5px" onClick="foodClick()">Food Items Continued from SQL Database</button>
 
     <br>
     <br> 
     
+    <!--Need to add functionality/logic to send data from above clicked buttons to an array; maybe use a boolean that is triggered to true on button click and then create logic to check which buttons are clicked and then get the name of the button?-->
     <label for="Go">Added All Your Food Items? Click Here:</label>
-    <button type="button" style="margin:5px">Submit</button>
+    <button type="button" id="Go" style="margin:5px" onclick="goClick()">Submit</button>
+
+    <script>
+        // MEG 10/31 should be updating the background color of the food items clicked on - NOT currently working - have tried an eventListener and click function
+        
+        // https://bobbyhadz.com/blog/javascript-change-button-color-onclick 
+        // const btn = document.getElementByID('btn');
+        // let index = 0; 
+        // const colors = ['gray', 'white'];
+        // btn.addEventListener('click', function onClick(){
+        //     btn.style.backgroundColor = colors[index];
+        //     btn.style.color = 'white';
+
+        //     index = index >= colors.length -1 ? 0: index+1;
+        // })
+
+        function foodClick() { // not working
+            const element = document.getElementById("btn");
+            let index = 0; 
+            const colors = ['gray', 'white'];
+
+            btn.style.backgroundColor = colors[index];
+            btn.style.color = 'white';
+
+            index = index >= colors.length -1 ? 0: index+1;
+        }
+
+
+        function goClick() { // not working
+        const element = document.getElementById('Go');
+        const style = getComputedStyle(element);
+        console.log(style.backgroundColor);
+    }
+    </script>
 
 <%- include('../_partial/_footer'); %>
