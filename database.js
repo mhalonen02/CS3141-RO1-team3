@@ -23,16 +23,21 @@ conn.connect(function(err){
 	}
 });
 
-$query_1 = 'SELECT * from foodCategory LIMIT 10';
 
-conn.query($query_1, function(err, rows) {
-    if(err){
-        console.log("An error ocurred performing the query.");
-        return;
-    }
+// $query_1 = 'SELECT * from foodCategory LIMIT 10';
+// //const rows;
 
-    console.log("Query succesfully executed: ", rows);
-});
+// conn.query($query_1, function(err, rows) {
+//     if(err){
+//         console.log("An error ocurred performing the query.");
+//         return;
+//     }
+
+//     console.log("Query succesfully executed: ", rows);
+//     console.log(typeof(rows));
+// });
+
+//console.log(rows);
 
 // query function to run sql statements - NOT currently working
 // conn.query(mysql, function(err){

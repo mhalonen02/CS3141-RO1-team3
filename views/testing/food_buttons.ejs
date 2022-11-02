@@ -1,6 +1,6 @@
 <%- include('../_partial/_header'); %>
 
-    <h1> Food Buttons! Yay! </h1>
+    <h1> Find a Recipe </h1>
     <br>
     <label for="filter-options">Select From Food Category Filters:</label>
     <select name="filter-options" id="filter-options">
@@ -12,6 +12,7 @@
 
     <br>
 
+    <!--Add button clicks from Find_Recipes-->
     <% foodData.forEach(function(data){ %>
         <button type="button" style="margin:5px"><%=data.food_name %></button>
     <%  }) %>
@@ -19,6 +20,7 @@
     <br>
     <br> 
     
+    <!--Add button clicks from Find_Recipes-->
     <label for="Go">Added All Your Food Items? Click Here:</label>
     <button type="button" style="margin:5px">Submit</button>
 <%- include('../_partial/_footer'); %>
