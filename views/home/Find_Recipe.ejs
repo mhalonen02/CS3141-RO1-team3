@@ -1,24 +1,22 @@
 <%- include('../_partial/_header'); %>
 
- 
-    <h1> Begin Your Recipe-Search Here! </h1>
-
+    <h1> Find a Recipe </h1>
     <br>
-
     <label for="filter-options">Select From Food Category Filters:</label>
     <select name="filter-options" id="filter-options">
         <option value="All">All Food Categories</option>
-        <option value="Protein">Protein</option>
-        <option value="SQL">SQL Database Food Catgories</option>
+        <% categoryData.forEach(function(data2){ %>
+            <option value=<%=data2.category_name%>><%=data2.category_name%></option>
+        <% }) %>
     </select>
 
     <br>
 
-    <!--Need to add functionality to change background color > see below javascript code; maybe add boolean that can be updated on button click?-->
-    <button  onclick="foodClick()" id="btn" style="margin:5px; background-color: white; border-radius: 5px;" >Food Item 1</button>
-    <button  onclick="foodClick()" id="btn" style="margin:5px; background-color: white; border-radius: 5px;" >Food Item 2</button>
-    <button  onclick="foodClick()" id="btn" style="margin:5px; background-color: white; border-radius: 5px;" >Food Item 3</button>
-    <button  onclick="foodClick()" id="btn" style="margin:5px; background-color: white; border-radius: 5px;" >FROM DATABASE</button>
+    <!--Add button clicks from Find_Recipes-->
+    <!-- https://codingstatus.com/how-to-display-data-from-mysql-database-table-in-node-js/ -->
+    <% foodData.forEach(function(data){ %>
+        <button onclick="foodClick()" id="btn" style="margin:5px; background-color: white" ><%=data.food_name %></button>
+    <%  }) %>
 
     <br>
     <br> 
