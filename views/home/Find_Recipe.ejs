@@ -15,7 +15,7 @@
     <!--Add button clicks from Find_Recipes-->
     <!-- https://codingstatus.com/how-to-display-data-from-mysql-database-table-in-node-js/ -->
     <% foodData.forEach(function(data){ %>
-        <button onclick="foodClick()" id="btn" style="margin:5px; background-color: white" ><%=data.food_name %></button>
+        <button onclick="foodClick(this)" id="<%=data.food_name %>" style="margin:5px; background-color: white" ><%=data.food_name %></button>
     <%  }) %>
 
     <br>
@@ -31,11 +31,13 @@
 
     <script>
         // MEG 11/2/2022 Going to watch to figure out this function https://www.youtube.com/watch?v=DABVLJjnVUs&ab_channel=dcode
-        function foodClick() { // not working
+        // this shows the name of the button on the bottom of the screen when the button is clicked
+        function foodClick(button) {
             //const element = document.getElementById("test");
-            document.getElementById("test").innerHTML = "Been Clicked!";
+            console.log(button);
+            console.log(button.getAttribute("id"));
+            document.getElementById("test").innerHTML = button.getAttribute("id");
         }
-
 
         function goClick() { // not working
         const element = document.getElementById('Go');
