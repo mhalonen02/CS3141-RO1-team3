@@ -28,15 +28,42 @@
     </a>
 
     <p id="test"> Clicked On?</p>
+    <div >
+        <ul id="selectedList"></ul>
+    </div>
 
     <script>
         // MEG 11/2/2022 Going to watch to figure out this function https://www.youtube.com/watch?v=DABVLJjnVUs&ab_channel=dcode
+        
+        // this is an array to store all of the input values in
+        var selected = [];
+
         // this shows the name of the button on the bottom of the screen when the button is clicked
-        function foodClick(button) {
+        function foodClick(button) 
+        {
             //const element = document.getElementById("test");
-            console.log(button);
-            console.log(button.getAttribute("id"));
+           // console.log(button);
+            //console.log(button.getAttribute("id"));
             document.getElementById("test").innerHTML = button.getAttribute("id");
+
+            // adds the selected item to the array
+            if(!(selected.includes(button.getAttribute("id"))))
+            {
+                selected.push(button.getAttribute("id"));
+                console.log(selected);
+                let thisItem = document.createElement("li");
+                thisItem.setAttribute("id","selected"+button.getAttribute("id"));
+                thisItem.innerHTML = button.getAttribute("id");
+                document.getElementById("selectedList").appendChild(thisItem);
+            }
+            // if the button is un-selected, it removes from the list
+            else
+            {
+                let index = selected.indexOf(button.getAttribute("id"));
+                selected.splice(index,1);
+                let selectedList = document.getElementById("selectedList");
+                selectedList.removeChild(document.getElementById("selected"+button.getAttribute("id")));
+            }
         }
 
         function goClick() { // not working
