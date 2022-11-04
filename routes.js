@@ -34,25 +34,16 @@ router.get("/Learn_App", function(req,res)
     res.render("home/Learn_App");
 });
 
-
-// shows buttons on the page since below code does not currently work
-// router.get("/food_buttons", function(req,res)
-// {
-//     res.render("testing/food_buttons");
-// });
-
-// router.get("/food_list", function(req,res)
-// {
-//     res.render("testing/food_list");
-// });
-
-// renders a page with food buttons (no filters for category implemented yet)
-router.get('/Find_Recipe', function(req, res) {
+router.get('/Find_Recipe', function(req, res) 
+{
+    // queries from our database, an sends that as an iterable object that "find_recipe" can use
     var sql1='SELECT * FROM foods';
     var sql2='SELECT * FROM foodCategory';
-    conn.query(sql1, function (err, data) {
+    conn.query(sql1, function (err, data) 
+    {
         if (err) throw err;
-        conn.query(sql2, function (err2, data2) {
+        conn.query(sql2, function (err2, data2) 
+        {
             if(err2) throw err2;
             res.render('home/Find_Recipe', {title:'Food Buttons',foodData:data,categoryData:data2});
         }) 

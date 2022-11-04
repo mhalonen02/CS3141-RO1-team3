@@ -1,5 +1,5 @@
-// makes connection to mysql database
-// run into errors if in the main app
+// creates connection to the MYSQL database that can be exported to other files
+
 var mysql = require('mysql');
 
 var conn = mysql.createConnection({ 
@@ -22,26 +22,5 @@ conn.connect(function(err){
 		console.log("Ping successful");
 	}
 });
-
-
-// $query_1 = 'SELECT * from foodCategory LIMIT 10';
-// //const rows;
-
-// conn.query($query_1, function(err, rows) {
-//     if(err){
-//         console.log("An error ocurred performing the query.");
-//         return;
-//     }
-
-//     console.log("Query succesfully executed: ", rows);
-//     console.log(typeof(rows));
-// });
-
-//console.log(rows);
-
-// query function to run sql statements - NOT currently working
-// conn.query(mysql, function(err){
-
-// });
 
 module.exports = conn;

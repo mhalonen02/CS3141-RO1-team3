@@ -1,5 +1,6 @@
 <%- include('../_partial/_header'); %>
 
+    <!--Lists all of the food categories as drop down options-->
     <h1> Find a Recipe </h1>
     <br>
     <label for="filter-options">Select From Food Category Filters:</label>
@@ -14,6 +15,7 @@
 
     <!--Add button clicks from Find_Recipes-->
     <!-- https://codingstatus.com/how-to-display-data-from-mysql-database-table-in-node-js/ -->
+    <!-- The foodClick() method sends the whole button object so it can be used -->
     <% foodData.forEach(function(data){ %>
         <button onclick="foodClick(this)" id="<%=data.food_name %>" style="margin:5px; background-color: white" ><%=data.food_name %></button>
     <%  }) %>
@@ -23,10 +25,9 @@
     
     <!--Need to add functionality/logic to send data from above clicked buttons to an array and refresh to new page-->
     <label for="Go">Added All Your Food Items? Click Here:</label>
-    <a href = "/Recipe_Display" > <!--When pressed, it will navigate to a different view to display the recipies; /Recipe_Display has NOT been created yet-->
-        <button type="button" id="Go" style="margin:5px; color: black" onclick="goClick()">Submit</button>
-    </a>
+    <button type="button" id="Go" style="margin:5px; color: black" onclick="goClick()">Submit</button>
 
+    <!--This is updated with the names of the foods that are clicked-->
     <p id="test"> Clicked On?</p>
     <div >
         <ul id="selectedList"></ul>
@@ -38,17 +39,16 @@
         // this is an array to store all of the input values in
         var selected = [];
 
-        // this shows the name of the button on the bottom of the screen when the button is clicked
+        // this function is called every time a button is clicked
         function foodClick(button) 
         {
-            //const element = document.getElementById("test");
-           // console.log(button);
-            //console.log(button.getAttribute("id"));
+            // makes the "test" thing say the name of the food
             document.getElementById("test").innerHTML = button.getAttribute("id");
 
-            // adds the selected item to the array
+            // the item is not in the array already
             if(!(selected.includes(button.getAttribute("id"))))
             {
+                // adds the name of the food to the array, and display it to the console for debugging
                 selected.push(button.getAttribute("id"));
                 console.log(selected);
                 let thisItem = document.createElement("li");
@@ -56,9 +56,10 @@
                 thisItem.innerHTML = button.getAttribute("id");
                 document.getElementById("selectedList").appendChild(thisItem);
             }
-            // if the button is un-selected, it removes from the list
+            // the item is already in the list
             else
             {
+                // removes the item from the list
                 let index = selected.indexOf(button.getAttribute("id"));
                 selected.splice(index,1);
                 let selectedList = document.getElementById("selectedList");
@@ -66,11 +67,15 @@
             }
         }
 
-        function goClick() { // not working
-        const element = document.getElementById('Go');
-        const style = getComputedStyle(element);
-        console.log(style.backgroundColor);
-    }
+        // find some way to send the "selected" list to other parts of the project when the submit button is clicked
+        function goClick() 
+        {
+            const element = document.getElementById('Go');
+            const style = getComputedStyle(element);
+            console.log(style.backgroundColor);
+
+            console.log(selected);
+        }
     </script>
 
 <%- include('../_partial/_footer'); %>
