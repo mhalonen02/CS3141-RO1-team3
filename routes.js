@@ -34,6 +34,11 @@ router.get("/Learn_App", function(req,res)
     res.render("home/Learn_App");
 });
 
+router.get("/Recipe_Display", function(req,res)
+{
+    res.render("home/Recipe_Display");
+});
+
 router.get('/Find_Recipe', function(req, res) 
 {
     // queries from our database, an sends that as an iterable object that "find_recipe" can use
