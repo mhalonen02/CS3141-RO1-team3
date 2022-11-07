@@ -25,7 +25,9 @@
     
     <!--Need to add functionality/logic to send data from above clicked buttons to an array and refresh to new page-->
     <label for="Go">Added All Your Food Items? Click Here:</label>
-    <button type="button" id="Go" style="margin:5px; color: black" onclick="goClick()">Submit</button>
+    <a href = "/Recipe_Display" > <!--When pressed, it will navigate to a different view to display the recipies; /Recipe_Display has NOT been created yet-->
+        <button type="button" id="Go" style="margin:5px; color: black" onclick="goClick()">Submit</button>
+    </a>
 
     <!--This is updated with the names of the foods that are clicked-->
     <p id="test"> Clicked On?</p>
