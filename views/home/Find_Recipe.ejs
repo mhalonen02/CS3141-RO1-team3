@@ -1,7 +1,21 @@
 <%- include('../_partial/_header'); %>
 
     <!--Lists all of the food categories as drop down options-->
-    <h1> Find a Recipe </h1>
+    <head>
+        <title>Find a Recipe </title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+      </head>
+    
+      <body>
+
+        <div class="container-fluid p-5 text-black text-center">
+            <h1> Find a Recipe </h1> <br>
+        </div>
+
     <br>
     <label for="filter-options">Select From Food Category Filters:</label>
     <select name="filter-options" id="filter-options">
@@ -34,6 +48,8 @@
     <div >
         <ul id="selectedList"></ul>
     </div>
+
+</body>
 
     <script>
         // MEG 11/2/2022 Going to watch to figure out this function https://www.youtube.com/watch?v=DABVLJjnVUs&ab_channel=dcode
