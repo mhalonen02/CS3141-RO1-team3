@@ -31,7 +31,7 @@
     <!-- https://codingstatus.com/how-to-display-data-from-mysql-database-table-in-node-js/ -->
     <!-- The foodClick() method sends the whole button object so it can be used -->
     <% foodData.forEach(function(data){ %>
-        <button onclick="foodClick(this)" id="<%=data.food_name %>" style="margin:5px; background-color: white" ><%=data.food_name %></button>
+        <button type="button" class="btn btn-default" onclick="foodClick(this)" id="<%=data.food_name %>" style="margin:5px; background-color: white" ><%=data.food_name %></button>
     <%  }) %>
 
     <br>
@@ -57,12 +57,13 @@
         // this is an array to store all of the input values in
         var selected = [];
 
+
         // this function is called every time a button is clicked
         function foodClick(button) 
         {
             // makes the "test" thing say the name of the food
             document.getElementById("test").innerHTML = button.getAttribute("id");
-
+            
             // the item is not in the array already
             if(!(selected.includes(button.getAttribute("id"))))
             {
@@ -73,6 +74,10 @@
                 thisItem.setAttribute("id","selected"+button.getAttribute("id"));
                 thisItem.innerHTML = button.getAttribute("id");
                 document.getElementById("selectedList").appendChild(thisItem);
+
+                // have on-click working; does not revert back once clicked again
+                button.style.backgroundColor="grey";
+                button.style.color = "white";
             }
             // the item is already in the list
             else
