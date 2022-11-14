@@ -75,9 +75,10 @@
                 thisItem.innerHTML = button.getAttribute("id");
                 document.getElementById("selectedList").appendChild(thisItem);
 
-                // have on-click working; does not revert back once clicked again
+                // change background color on click to show selected
                 button.style.backgroundColor="grey";
                 button.style.color = "white";
+
             }
             // the item is already in the list
             else
@@ -87,6 +88,10 @@
                 selected.splice(index,1);
                 let selectedList = document.getElementById("selectedList");
                 selectedList.removeChild(document.getElementById("selected"+button.getAttribute("id")));
+
+                // change background on click to show unselected
+                button.style.backgroundColor="white";
+                button.style.color = "black";
             }
         }
 
