@@ -113,12 +113,12 @@
 
             console.log(selected);
 
-            //Abbie 11/7 sending the selected list to the formatted google search page
-            //export var selected;
+            //uses localStorage to store the selected array, Abbie 11/15
+            localStorage.setItem("selectedArray", selected);
 
-
-            // Finley 11/7 this doesn't work lol
-            // module.exports = selected;
+            //how to retrieve value from localStorage
+            //var value = localStorage.getItem("selectedArray");
+            
         }
     </script>
 
