@@ -3,10 +3,17 @@
 // https://www.scrapingbee.com/blog/node-fetch/
 // https://stackoverflow.com/questions/15343292/extract-all-hyperlinks-from-external-website-using-node-js-and-request
 
-//var list = [];
-//list = localStorage.getItem("selectedArray");
+const conn = require("./database");
 var list = ["beef", "rice", "cheese"];
 var url = "https://www.google.com/search?q=healthy+recipes+with+";
+var request = require('request');
+var cheerio = require('cheerio');
+const { stringify } = require("querystring");
+var linkNames = [];
+var recipeLinks = [];
+var done = false;
+var cleanedNames = [];
+var cleanedLinks = [];
 
 // adds each food to the search followed by a + for correct formatting
 for(var i = 0; i < list.length; i++)
@@ -17,16 +24,6 @@ for(var i = 0; i < list.length; i++)
     url += "+";
 }
 
-var request = require('request');
-var cheerio = require('cheerio');
-var linkNames = [];
-var recipeLinks = [];
-var done = false;
-
-// arrays to store our cleaned links
-var cleanedNames = [];
-var cleanedLinks = [];
-
 request(url, function(err, resp, body)
 {
     $ = cheerio.load(body);
@@ -34,8 +31,11 @@ request(url, function(err, resp, body)
     $(links).each(function(i, link)
     {
 		//console.log($(link).text() + ':\n  ' + $(link).attr('href'));
+		//https://www.tabnine.com/code/javascript/functions/cheerio/href
+		const href = $(link).attr('href').split("=");
+		const temp = href[1];
         linkNames.push($(link).text());
-		recipeLinks.push($(link).attr('href'));
+		recipeLinks.push(temp);
     });
 
 	// starts at 14 bc all the other links are junk
@@ -55,14 +55,26 @@ request(url, function(err, resp, body)
 		counter++;
 	}
     done = true;
-	for(var j = 0; j < cleanedNames.length; j++)
-		console.log((j+1) + ": " + cleanedNames[j] + "\n" + cleanedLinks[j] + "\n\n");
+	//for(var j = 0; j < cleanedNames.length; j++)
+	//	console.log((j+1) + ": " + cleanedNames[j] + "\n" + cleanedLinks[j] + "\n\n");
 
-	console.log("Done!");
+	//console.log("Done!");
+
+	// clear data from database
+	var stmt = "delete from searchData";
+	conn.query(stmt, function(err,results)
+	{
+		if(err) throw err;
+	});
+
+	// insert data into database
+	var sql = "insert into searchData values(?,?)";
+	for(var i = 0; i < cleanedNames.length; i++)
+	{
+		var todo = [cleanedNames[i], cleanedLinks[i]];
+		conn.query(sql, todo, (err,results,fields) =>
+		{
+			if(err) throw err;
+		});
+	}
 });
-//stealing this idea to see if it works
-if(done)
-{
-    //localStorage.setItem("names", cleanedNames);
-    //localStorage.setItem("links", cleanedLinks);
-}

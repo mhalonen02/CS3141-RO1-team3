@@ -1,5 +1,4 @@
 // creates connection to the MYSQL database that can be exported to other files
-
 var mysql = require('mysql');
 
 var conn = mysql.createConnection({ 

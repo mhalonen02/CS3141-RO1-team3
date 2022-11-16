@@ -36,15 +36,19 @@ router.get("/Learn_App", function(req,res)
 
 router.get("/Recipe_Display", function(req,res)
 {
-    // loads search only when recipe display loaded
+    // makes the search.js run
     var search = require("./Search");
 
     // delays so search can finish running
+    var sql = "select * from searchData";
     setTimeout(() => 
-    {
-        res.render("home/Recipe_Display");
-    }, "1000")
-   
+    { 
+        conn.query(sql, function (err2, data) 
+        {
+            if(err2) throw err2;
+            res.render('home/Recipe_Display', {title:'Search Data',searchData:data});
+        });
+    },"1000")
 });
 
 router.get('/Find_Recipe', function(req, res) 

@@ -66,7 +66,6 @@
         // this is an array to store all of the input values in
         var selected = [];
 
-
         // this function is called every time a button is clicked
         function foodClick(button) 
         {
@@ -116,14 +115,8 @@
             //uses localStorage to store the selected array, Abbie 11/15
             localStorage.setItem("selectedArray", selected);
 
-
-            //writes our selected array to a file to be accessed from a js file
-            fs.writeFile('selected.txt', JSON.stringify(selected), (err) =>{if 
-            (err) console.log(err); console.log('Successfully written to the file!');});
-
             //how to retrieve value from localStorage
             //var value = localStorage.getItem("selectedArray");
-
         }
     </script>
 
