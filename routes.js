@@ -36,12 +36,15 @@ router.get("/Learn_App", function(req,res)
 
 router.get("/Recipe_Display", function(req,res)
 {
-    res.render("home/Recipe_Display");
-});
+    // loads search only when recipe display loaded
+    var search = require("./Search");
 
-router.get("/search_test", function(req,res)
-{
-    res.render("testing/search_test");
+    // delays so search can finish running
+    setTimeout(() => 
+    {
+        res.render("home/Recipe_Display");
+    }, "1000")
+   
 });
 
 router.get('/Find_Recipe', function(req, res) 
