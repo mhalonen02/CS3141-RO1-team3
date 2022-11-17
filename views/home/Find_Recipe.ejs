@@ -29,6 +29,30 @@
     </div>
     <br>
 
+    <% var id = 0; %>
+    <% var name = 0; %>
+    <% categoryData.forEach(function(data2){ %>
+        <div class="container">
+            <div class="panel-group" id="accordion">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#<%=id%>"><%=data2.category_name%></a>
+                        </h4>
+                    </div>
+                    <%foodData.forEach(function(data){ %>
+                        <% if(data.category_name === data2.category_name) { %>
+                            <div id="<%=id%>" class="panel-collapse collapse in">
+                                <div class="panel-body"><%=data.food_name%></div>
+                        <% }
+                    }) %>
+                    <% id++; %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <% }) %>
+
     <div class="container-fluid">
         <div class="row">
             <div class="col-xs-10">
