@@ -14,15 +14,16 @@
     <div class="container-fluid p-5 text-black text-center">
         <h1>Healthy Recipes Found! </h1> <br>
     
+        <% searchData.forEach(function(data){ %>
+          <a href="<%=data.link%>" target="_blank" id="<%=data.link%>"><%=data.name%></a>
+          <br><br>
+      <%  }) %>
     
     </div>
 
   </body>
 
     <script type="text/javascript">
-        //this gives error saying "require is not defined"
-        //var array = require("/Find_Recipe.ejs");
-        //console.log(array);
         console.log(localStorage.getItem("selectedArray"));
     </script>
 
