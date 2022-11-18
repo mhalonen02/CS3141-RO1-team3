@@ -117,9 +117,13 @@
             localStorage.setItem("selectedArray", selected);
 
 
+            //include node fs module
+            var fs = require('fs');
+
             //writes our selected array to a file to be accessed from a js file
-            fs.writeFile('selected.txt', JSON.stringify(selected), (err) =>{if 
-            (err) console.log(err); console.log('Successfully written to the file!');});
+            fs.writeFile('selected.txt', JSON.stringify(selected), (err) =>{
+                if (err) console.log(err); 
+                console.log('Successfully written to the file!');})
 
             //how to retrieve value from localStorage
             //var value = localStorage.getItem("selectedArray");
