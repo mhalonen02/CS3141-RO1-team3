@@ -11,13 +11,15 @@
 
   <body>
 
-    <div class="container-fluid p-5 text-black text-center">
-        <h1>Healthy Recipes Found! </h1> <br>
+    <div class="container-fluid p-10 text-black text-center text-">
+        <h1><strong> HEALTHY RECIPES FOUND: </strong></h1> <br>
     
         <% searchData.forEach(function(data){ %>
           <a href="<%=data.link%>" target="_blank" id="<%=data.link%>"><%=data.name%></a>
           <br><br>
       <%  }) %>
+
+      <h2 class = "small"><em>Click any of the links above to view a nutritious recipe idea from the ingredients you selected!</em></h2>
     
     </div>
 
