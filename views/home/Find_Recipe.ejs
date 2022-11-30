@@ -21,7 +21,6 @@
     <!--Drop downs by food category with all the foods in them-->
     <div class="container">
         <div class="panel-group" id="accordion">
-
         <% var id = 0; %>
         <% categoryData.forEach(function(data2){ %>
           <div class="panel panel-default">
@@ -34,7 +33,9 @@
             <div id="<%=id%>" class="panel-collapse collapse">
                 <%foodData.forEach(function(data){ %>
                     <% if(data.category_name === data2.category_name) { %>
-                        <div class="panel-body"><%=data.food_name%></div>
+                        <div class="panel-body">
+                            <button type="button" class="btn btn-default" onclick="foodClick(this)" id="<%=data.food_name %>" style="margin:5px; background-color: white" ><%=data.food_name %></button>
+                        </div>
                     <% }
                 }) %>
             </div>
@@ -43,24 +44,6 @@
           <% }) %>
         </div> 
       </div>
-
-    <!--
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-xs-10">
-    -->
-    <!--Add button clicks from Find_Recipes-->
-    <!-- https://codingstatus.com/how-to-display-data-from-mysql-database-table-in-node-js/ -->
-    <!-- The foodClick() method sends the whole button object so it can be used -->
-    <!--
-    <% foodData.forEach(function(data){ %>
-        <button type="button" class="btn btn-default" onclick="foodClick(this)" id="<%=data.food_name %>" style="margin:5px; background-color: white" ><%=data.food_name %></button>
-    <%  }) %>
-            </div>
-        </div>    
-    </div>
-    -->
-
     <br>
     <br> 
     
