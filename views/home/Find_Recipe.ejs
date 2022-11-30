@@ -18,55 +18,48 @@
 
     <br>
 
+    <!--Drop downs by food category with all the foods in them-->
     <div class="container">
-    <label for="filter-options">Select From Food Category Filters:</label>
-    <select name="filter-options" id="filter-options">
-        <option value="All">All Food Categories</option>
+        <div class="panel-group" id="accordion">
+
+        <% var id = 0; %>
         <% categoryData.forEach(function(data2){ %>
-            <option value=<%=data2.category_name%>><%=data2.category_name%></option>
-        <% }) %>
-    </select>
-    </div>
-    <br>
-
-    
-    <% var id = 0; %>
-    <% var name = 0; %>
-    <% categoryData.forEach(function(data2){ %>
-        <div class="container">
-            <div class="panel-group" id="accordion">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#<%=id%>"><%=data2.category_name%></a>
-                        </h4>
-                    </div>
-                    <%foodData.forEach(function(data){ %>
-                        <% if(data.category_name === data2.category_name) { %>
-                            <div id="<%=id%>" class="panel-collapse collapse in">
-                                <div class="panel-body"><%=data.food_name%></div>
-                        <% }
-                    }) %>
-                    <% id++; %>
-                    </div>
-                </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#<%=id%>"><%=data2.category_name%></a>
+              </h4>
             </div>
-        </div>
-    <% }) %>
-    
 
+            <div id="<%=id%>" class="panel-collapse collapse">
+                <%foodData.forEach(function(data){ %>
+                    <% if(data.category_name === data2.category_name) { %>
+                        <div class="panel-body"><%=data.food_name%></div>
+                    <% }
+                }) %>
+            </div>
+          </div>
+          <% id++; %>
+          <% }) %>
+        </div> 
+      </div>
+
+    <!--
     <div class="container-fluid">
         <div class="row">
             <div class="col-xs-10">
+    -->
     <!--Add button clicks from Find_Recipes-->
     <!-- https://codingstatus.com/how-to-display-data-from-mysql-database-table-in-node-js/ -->
     <!-- The foodClick() method sends the whole button object so it can be used -->
+    <!--
     <% foodData.forEach(function(data){ %>
         <button type="button" class="btn btn-default" onclick="foodClick(this)" id="<%=data.food_name %>" style="margin:5px; background-color: white" ><%=data.food_name %></button>
     <%  }) %>
             </div>
         </div>    
     </div>
+    -->
 
     <br>
     <br> 
