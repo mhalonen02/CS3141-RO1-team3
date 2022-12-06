@@ -4,7 +4,7 @@
 // https://stackoverflow.com/questions/15343292/extract-all-hyperlinks-from-external-website-using-node-js-and-request
 
 const conn = require("./database");
-var list = ["beef", "rice", "cheese"];
+var list = ["kale", "rice", "beef"];
 var url = "https://www.google.com/search?q=healthy+recipes+with+";
 var request = require('request');
 var cheerio = require('cheerio');
@@ -33,9 +33,13 @@ request(url, function(err, resp, body)
 		//console.log($(link).text() + ':\n  ' + $(link).attr('href'));
 		//https://www.tabnine.com/code/javascript/functions/cheerio/href
 		const href = $(link).attr('href').split("=");
-		const temp = href[1];
+		$(link).attr('href', href[1]);
+
+		const href2 = $(link).attr('href').split("&");
+		$(link).attr('href', href2[0]);
+
         linkNames.push($(link).text());
-		recipeLinks.push(temp);
+		recipeLinks.push($(link).attr('href'));
     });
 
 	// starts at 14 bc all the other links are junk
